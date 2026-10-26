@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sabor & Reseña, una plataforma para descubrir restaurantes.">
+  <title>Sabor & Reseña</title>
+  <link rel="stylesheet" href="css/estilos.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+
+<body>
+  <header class="encabezado-sitio">
+    <a class="marca" href="#inicio" aria-label="Ir al inicio">
+      <span class="icono-marca" aria-hidden="true">🍽️</span>
+      <span>Sabor & Reseña</span>
+    </a>
+
+    <button class="boton-menu" id="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal">
+      <span class="solo-lectura">Abrir menú</span>
+      <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Navegación principal">
+      <a class="enlace-menu activo" href="#inicio">Inicio</a>
+      <a class="enlace-menu" href="#restaurantes">Restaurantes</a>
+      <a class="enlace-menu" href="#sobre-nosotros">Sobre nosotros</a>
+      <a class="enlace-menu boton-inicio-sesion" href="#inicio-sesion">Iniciar sesión</a>
+      <a class="enlace-menu boton-crear-cuenta" href="registro.html">Crear cuenta</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="presentacion" id="inicio">
+      <div class="contenido-presentacion">
+        <p class="etiqueta-superior">DESCUBRE • COMPARTE • DISFRUTA</p>
+        <h1>Encuentra un lugar que valga la pena recordar.</h1>
+        <p class="texto-presentacion">Explora restaurantes, conoce nuevas experiencias y comparte tu opinión con la
+          comunidad.</p>
+        <div class="acciones-presentacion">
+          <a class="boton boton-principal" href="#restaurantes">Explorar restaurantes</a>
+          <a class="boton boton-claro" href="#inicio-sesion">Iniciar sesión</a>
+        </div>
+      </div>
+      <div class="tarjeta-presentacion" aria-label="Resumen de la plataforma">
+        <span class="icono-tarjeta" aria-hidden="true">✦</span>
+        <p class="etiqueta-tarjeta">Tu próxima experiencia</p>
+        <strong>Puede estar más cerca de lo que imaginas.</strong>
+        <span class="estrellas-tarjeta" aria-label="Cinco estrellas">★★★★★</span>
+      </div>
+    </section>
+
+    <section class="seccion restaurantes-previa" id="restaurantes">
+      <div class="encabezado-seccion">
+        <div>
+          <p class="etiqueta-superior etiqueta-oscura">PARA EMPEZAR</p>
+          <h2>Explora sabores nuevos</h2>
+        </div>
+      </div>
+      <div class="buscador-ubicacion">
+        <button class="boton boton-principal" id="boton-ubicacion" type="button">📍 Usar mi ubicación</button>
+        <p class="mensaje-ubicacion" id="mensaje-ubicacion" aria-live="polite">Permite el acceso a tu ubicación para
+          buscar restaurantes cercanos.</p>
+
+        <div class="ubicacion-manual">
+          <label for="direccion-manual">Si la ubicación automática falla, escribe tu dirección completa</label>
+          <div class="fila-direccion-manual">
+            <input id="direccion-manual" type="text" placeholder="Ejemplo: Calle 10 #20-30, ciudad y país"
+              autocomplete="street-address">
+            <button class="boton boton-secundario" id="boton-direccion-manual" type="button">Buscar dirección</button>
+          </div>
+          <p class="mensaje-ubicacion" id="mensaje-direccion-manual" aria-live="polite"></p>
+        </div>
+      </div>
+
+      <div class="zona-ubicacion" id="zona-ubicacion" hidden>
+        <div id="mapa" class="mapa" aria-label="Mapa con tu ubicación y restaurantes cercanos"></div>
+        <div class="resumen-ubicacion">
+          <div>
+            <p><strong>Tu ubicación actual</strong></p>
+            <p id="coordenadas-ubicacion">Coordenadas: esperando...</p>
+            <p id="direccion-ubicacion">Dirección no verificada. Revisa el punto en el mapa.</p>
+          </div>
+          <p id="precision-ubicacion">Esperando precisión...</p>
+        </div>
+        <div class="lista-restaurantes" id="lista-restaurantes">
+          <h3>Restaurantes cercanos</h3>
+          <p class="cargando-restaurantes">Buscando lugares cercanos...</p>
+        </div>
+      </div>
+
+      <section class="detalle-restaurante" id="detalle-restaurante" hidden aria-labelledby="titulo-detalle">
+        <div id="contenido-detalle"></div>
+
+        <div class="zona-resenas">
+          <div class="encabezado-resenas">
+            <div>
+              <p class="etiqueta-superior etiqueta-oscura">OPINIONES DE LA COMUNIDAD</p>
+              <h3>Reseñas del restaurante</h3>
+            </div>
+            <p class="aviso-demostracion">Por ahora se guardan solo en este navegador.</p>
+          </div>
+
+          <div id="lista-resenas" class="lista-resenas">
+            <p class="cargando-restaurantes">Todavía no hay reseñas.</p>
+          </div>
+
+          <form id="formulario-resena" class="formulario formulario-resena">
+            <h4>Escribe tu reseña</h4>
+            <div class="campo">
+              <label for="nombre-resena">Tu nombre</label>
+              <input id="nombre-resena" name="nombre" type="text" placeholder="Ejemplo: Ana" maxlength="40" required>
+            </div>
+            <div class="campo">
+              <label for="calificacion-resena">Calificación</label>
+              <select id="calificacion-resena" name="calificacion" required>
+                <option value="">Selecciona una calificación</option>
+                <option value="5">5 estrellas — Excelente</option>
+                <option value="4">4 estrellas — Muy bueno</option>
+                <option value="3">3 estrellas — Bueno</option>
+                <option value="2">2 estrellas — Puede mejorar</option>
+                <option value="1">1 estrella — No lo recomiendo</option>
+              </select>
+            </div>
+            <div class="campo">
+              <label for="comentario-resena">Comentario</label>
+              <textarea id="comentario-resena" name="comentario" rows="4" maxlength="500"
+                placeholder="Cuéntanos tu experiencia" required></textarea>
+            </div>
+            <button class="boton boton-principal" type="submit">Publicar reseña</button>
+            <p class="mensaje-formulario" id="mensaje-resena" aria-live="polite"></p>
+          </form>
+        </div>
+      </section>
+    </section>
+
+    <section class="seccion-inicio-sesion" id="inicio-sesion">
+      <div class="introduccion-inicio-sesion">
+        <p class="etiqueta-superior etiqueta-oscura">TU CUENTA</p>
+        <h2>Vuelve a tus lugares favoritos.</h2>
+        <p>Inicia sesión para guardar restaurantes y compartir tus experiencias gastronómicas.</p>
+      </div>
+
+      <div class="tarjeta-inicio-sesion">
+        <div class="encabezado-formulario">
+          <span class="icono-inicio-sesion" aria-hidden="true">🔐</span>
+          <h2>Iniciar sesión</h2>
+          <p>Accede a tu cuenta de Sabor & Reseña.</p>
+        </div>
+
+        <form id="formulario-inicio-sesion" class="formulario">
+          <div class="campo">
+            <label for="correo">Correo electrónico</label>
+            <input id="correo" name="correo" type="email" autocomplete="email" placeholder="tu@correo.com" required>
+          </div>
+
+          <div class="campo">
+            <label for="contrasena">Contraseña</label>
+            <div class="campo-contrasena">
+              <input id="contrasena" name="contrasena" type="password" autocomplete="current-password"
+                placeholder="Escribe tu contraseña" required>
+              <button class="boton-contrasena" type="button" data-campo="contrasena"
+                aria-label="Mostrar contraseña">👁</button>
+            </div>
+          </div>
+
+          <div class="opciones-formulario">
+            <label class="opcion-recordarme">
+              <input type="checkbox" name="recordarme">
+              <span>Recordarme</span>
+            </label>
+            <button class="enlace-texto boton-texto" id="enlace-contrasena-olvidada" type="button">¿Olvidaste tu
+              contraseña?</button>
+          </div>
+
+          <button class="boton boton-principal boton-ancho-completo" type="submit">Entrar</button>
+          <p class="mensaje-formulario" id="mensaje-inicio-sesion" aria-live="polite"></p>
+        </form>
+
+        <p class="pie-inicio-sesion">¿Todavía no tienes una cuenta? <a href="registro.html" class="enlace-texto">Crear
+            cuenta</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie-sitio" id="sobre-nosotros">
+    <p>© 2026 Sabor & Reseña · Proyecto académico</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="js/principal.js"></script>
+</body>
+
+</html>

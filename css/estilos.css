@@ -1,0 +1,533 @@
+:root {
+  --tinta: #193b3b;
+  --texto-suave: #5f7270;
+  --crema: #f3f8f5;
+  --papel: #ffffff;
+  --terracota: #d36a4d;
+  --terracota-oscuro: #a94d38;
+  --oliva: #2f6f68;
+  --dorado: #e3a947;
+  --linea: #d8e7e1;
+  --sombra: 0 18px 50px rgba(25, 59, 59, .12);
+  --radio: 20px;
+}
+
+* { box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  background: var(--crema);
+  color: var(--tinta);
+  font-family: "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+a { color: inherit;
+  text-decoration: none;
+}
+
+button, input { font: inherit;
+}
+
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.12;
+}
+
+.solo-lectura {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.encabezado-sitio {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 76px;
+  padding: 0 6vw;
+  border-bottom: 1px solid rgba(255, 253, 249, .14);
+  background: rgba(25, 59, 59, .97);
+  color: var(--papel);
+}
+
+.marca {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.icono-marca { 
+  font-size: 1.15rem; 
+}
+
+.menu-principal {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+}
+
+.enlace-menu {
+  color: #e9dfd4;
+  font-size: .88rem;
+  transition: color .2s ease;
+}
+
+.enlace-menu:hover, .enlace-menu.activo {
+  color: #f7c866;
+}
+
+.boton-inicio-sesion,
+.boton-crear-cuenta {
+  padding: .55rem 1rem;
+  border: 1px solid rgba(242, 200, 120, .6);
+  border-radius: 999px;
+  color: #f7c866;
+}
+
+.boton-crear-cuenta {
+  border-color: rgba(255, 253, 249, .25);
+  color: #e9dfd4;
+}
+
+.boton-menu {
+  display: none;
+}
+
+.presentacion {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(260px, .65fr);
+  gap: 3rem;
+  align-items: center;
+  min-height: 560px;
+  padding: 6rem 10vw;
+  background-image: url(/principal.jpeg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  color: var(--papel);
+}
+
+.contenido-presentacion {
+  max-width: 680px;
+}
+
+.etiqueta-superior { 
+  color: var(--tinta);
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .18em;
+}
+
+.etiqueta-oscura { 
+  color: var(--oliva);
+}
+
+.presentacion h1 {
+  max-width: 700px;
+  margin: 1rem 0;
+  font-size: clamp(2.8rem, 6vw, 5.4rem);
+  letter-spacing: -.04em;
+}
+
+.texto-presentacion { 
+  max-width: 520px;
+  color: var(--crema);
+  font-size: 1.05rem;
+}
+
+.acciones-presentacion { 
+  display: flex;
+  flex-wrap: wrap;
+  gap: .8rem;
+  margin-top: 2rem;
+}
+
+.boton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  padding: .7rem 1.25rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: .88rem;
+  font-weight: 700;
+  transition: transform .2s ease, background-color .2s ease, border-color .2s ease;
+}
+
+.boton:hover { 
+  transform: translateY(-2px);
+}
+
+.boton:disabled { 
+  cursor: wait;
+  opacity: .7;
+  transform: none;
+}
+
+.boton-principal { 
+  background: var(--terracota);
+  color: white;
+}
+
+.boton-principal:hover { 
+  background: var(--terracota-oscuro);
+}
+
+.boton-claro { 
+  border-color: rgba(255, 253, 249, .45);
+  color: var(--papel);
+}
+
+.boton-claro:hover { 
+  background: rgba(255, 253, 249, .1);
+}
+
+.boton-ancho-completo { 
+  width: 100%;
+}
+
+.tarjeta-presentacion {
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+  max-width: 300px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: var(--radio);
+  background: rgba(255, 253, 249, 0.186);
+  box-shadow: var(--sombra);
+}
+
+.icono-tarjeta { 
+  color: #f2c878;
+  font-size: 2rem;
+}
+
+.etiqueta-tarjeta { 
+  color: rgb(243, 243, 21);
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.tarjeta-presentacion strong { 
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.estrellas-tarjeta { 
+  color: #f2c878;
+  letter-spacing: .12em;
+}
+
+.seccion { 
+  padding: 5rem 10vw;
+}
+
+.encabezado-seccion { 
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  align-items: end;
+  margin-bottom: 2rem;
+}
+
+.seccion h2, .introduccion-inicio-sesion h2 { 
+  margin-top: .45rem;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+}
+
+.estado-vacio {
+  padding: 4rem 2rem;
+  border: 1px dashed #cdbbaa;
+  border-radius: var(--radio);
+  background: rgba(255, 253, 249, .55);
+  text-align: center;
+}
+
+.icono-vacio { 
+  display: block;
+  margin-bottom: .7rem;
+  font-size: 2rem;
+}
+
+.estado-vacio h3 { 
+  margin-bottom: .4rem;
+  font-size: 1.5rem;
+}
+
+.estado-vacio p { 
+  max-width: 500px;
+  margin: auto;
+  color: var(--texto-suave);
+  font-size: .9rem;
+}
+
+.buscador-ubicacion {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  background: linear-gradient(135deg, #ffffff, #edf7f2);
+  box-shadow: 0 10px 30px rgba(25, 59, 59, .06);
+}
+
+.mensaje-ubicacion { 
+  color: var(--texto-suave);
+  font-size: .9rem;
+}
+
+.ubicacion-manual { 
+  flex: 1 1 100%;
+  padding-top: 1rem;
+  border-top: 1px solid var(--linea);
+}
+
+.ubicacion-manual label { 
+  display: block;
+  margin-bottom: .45rem;
+  color: var(--tinta);
+  font-size: .8rem;
+  font-weight: 700;
+}
+
+.fila-direccion-manual {
+  display: flex;
+  gap: .7rem;
+}
+
+.fila-direccion-manual input {
+  flex: 1;
+  min-height: 42px;
+  padding: .65rem .8rem;
+  border: 1px solid var(--linea); border-radius: 10px;
+  background: var(--papel);
+  color: var(--tinta); 
+}
+
+.zona-ubicacion {
+  max-width: 980px;
+  margin: 1.5rem auto 0;
+}
+
+.mapa {
+  height: 300px;
+  border: 4px solid var(--papel);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.resumen-ubicacion {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding: .85rem 1.2rem;
+  border: 1px solid var(--linea);
+  border-radius: 14px;
+  background: var(--papel); 
+  color: var(--texto-suave); 
+  font-size: .88rem; 
+  box-shadow: 0 8px 25px rgba(25, 59, 59, .06);
+}
+
+.resumen-ubicacion strong { 
+  color: var(--tinta); 
+}
+
+.resumen-ubicacion p { 
+  max-width: 620px;
+   margin: .15rem 0; 
+}
+
+#direccion-ubicacion { 
+  color: var(--texto-suave); 
+  font-size: .8rem; 
+}
+
+.lista-restaurantes { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 1rem; 
+  margin-top: 1.5rem; 
+}
+
+.lista-restaurantes h3 { 
+  grid-column: 1 / -1; 
+  font-size: 1.6rem; 
+}
+
+.tarjeta-restaurante { 
+  padding: 1.25rem; 
+  border: 1px solid var(--linea); 
+  border-radius: 14px; 
+  background: var(--papel); box-shadow: 0 8px 25px rgba(25, 59, 59, .06); 
+  transition: transform .2s ease, box-shadow .2s ease; 
+}
+
+.tarjeta-restaurante:hover { 
+  transform: translateY(-3px); 
+  box-shadow: var(--sombra); 
+}
+
+.tarjeta-restaurante h4 { 
+  margin-bottom: .35rem; 
+  color: var(--tinta); 
+  font-family: Georgia, "Times New Roman", serif; 
+  font-size: 1.2rem; 
+}
+
+.tarjeta-restaurante p { 
+  color: var(--texto-suave); 
+  font-size: .88rem; 
+}
+
+.enlace-mapa { 
+  display: inline-block;
+   margin-top: .65rem; 
+  color: var(--terracota-oscuro); 
+  font-size: .82rem; 
+  font-weight: 700; 
+}
+
+.cargando-restaurantes { grid-column: 1 / -1; color: var(--texto-suave); }
+.contenido-tarjeta-restaurante { padding-top: .1rem; }
+.categoria-restaurante { color: var(--oliva) !important; font-size: .72rem !important; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+.boton-secundario { min-height: 38px; margin-top: .7rem; padding: .5rem .9rem; background: #e9f3ef; color: var(--oliva); font-size: .78rem; }
+.boton-secundario:hover { background: #d8eae3; }
+.detalle-restaurante { max-width: 980px; margin: 2rem auto 0; padding: 1.5rem; border: 1px solid var(--linea); border-radius: var(--radio); background: var(--papel); box-shadow: var(--sombra); }
+.encabezado-detalle { display: block; }
+.encabezado-detalle h3 { margin: .35rem 0; font-size: 2rem; }
+.encabezado-detalle p:not(.categoria-restaurante) { color: var(--texto-suave); font-size: .9rem; }
+.enlaces-detalle { display: flex; flex-wrap: wrap; gap: 1rem; }
+.zona-resenas { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--linea); }
+.encabezado-resenas { display: flex; justify-content: space-between; gap: 1rem; align-items: end; margin-bottom: 1rem; }
+.encabezado-resenas h3 { margin-top: .35rem; font-size: 1.6rem; }
+.aviso-demostracion { color: var(--texto-suave); font-size: .78rem; }
+.lista-resenas { display: grid; gap: .8rem; }
+.tarjeta-resena { padding: 1rem; border: 1px solid var(--linea); border-radius: 12px; background: #f8fcfa; }
+.encabezado-resena { display: flex; justify-content: space-between; gap: 1rem; margin-bottom: .35rem; }
+.tarjeta-resena p { color: var(--texto-suave); font-size: .9rem; }
+.tarjeta-resena small { display: block; margin-top: .5rem; color: var(--texto-suave); font-size: .72rem; }
+.estrellas-resena { color: var(--dorado); letter-spacing: .08em; }
+.formulario-resena { max-width: 620px; margin-top: 1.5rem; padding: 1.25rem; border: 1px solid var(--linea); border-radius: 14px; background: #f8fcfa; }
+.formulario-resena h4 { font-family: Georgia, "Times New Roman", serif; font-size: 1.35rem; }
+.campo select, .campo textarea { width: 100%; padding: .7rem .85rem; border: 1px solid var(--linea); border-radius: 10px; background: var(--papel); color: var(--tinta); outline: none; resize: vertical; }
+.campo select:focus, .campo textarea:focus { border-color: var(--terracota); box-shadow: 0 0 0 3px rgba(211, 106, 77, .13); }
+
+.seccion-inicio-sesion,
+.pagina-cuenta {
+  display: grid;
+  grid-template-columns: minmax(0, .9fr) minmax(320px, 480px);
+  justify-content: center;
+  gap: 5rem;
+  padding: 5rem 10vw 6rem;
+  background: var(--papel);
+}
+
+.introduccion-inicio-sesion { align-self: center; max-width: 440px; }
+.introduccion-inicio-sesion > p:last-child,
+.introduccion-cuenta > p:last-child { margin-top: 1rem; color: var(--texto-suave); }
+
+.tarjeta-inicio-sesion {
+  padding: 2.2rem;
+  border: 1px solid var(--linea);
+  border-radius: var(--radio);
+  background: var(--papel);
+  box-shadow: var(--sombra);
+}
+
+.encabezado-formulario { margin-bottom: 1.7rem; }
+.icono-inicio-sesion { display: block; margin-bottom: .5rem; font-size: 1.6rem; }
+.encabezado-formulario h2 { font-size: 2rem; }
+.encabezado-formulario p { margin-top: .35rem; color: var(--texto-suave); font-size: .88rem; }
+.formulario { display: grid; gap: 1rem; }
+.campo { display: grid; gap: .4rem; }
+.campo label { font-size: .8rem; font-weight: 700; }
+
+.campo input {
+  width: 100%;
+  min-height: 46px;
+  padding: .7rem .85rem;
+  border: 1px solid var(--linea);
+  border-radius: 10px;
+  background: #fbf7f0;
+  color: var(--tinta);
+  outline: none;
+}
+
+.campo input:focus { border-color: var(--terracota); box-shadow: 0 0 0 3px rgba(184, 93, 63, .13); }
+.campo-contrasena { position: relative; }
+.campo-contrasena input { padding-right: 3.2rem; }
+.boton-contrasena { position: absolute; top: 50%; right: .7rem; transform: translateY(-50%); border: 0; background: transparent; cursor: pointer; opacity: .6; }
+.opciones-formulario { display: flex; justify-content: space-between; gap: 1rem; align-items: center; color: var(--texto-suave); font-size: .78rem; }
+.opcion-recordarme, .opcion-terminos { display: inline-flex; gap: .4rem; align-items: center; }
+.opcion-terminos { color: var(--texto-suave); font-size: .78rem; }
+.enlace-texto { color: var(--terracota-oscuro); font-weight: 700; }
+.enlace-texto:hover { text-decoration: underline; }
+.boton-texto { padding: 0; border: 0; background: transparent; cursor: pointer; }
+.mensaje-formulario { min-height: 1.3rem; color: var(--oliva); font-size: .82rem; text-align: center; }
+.pie-inicio-sesion { margin-top: 1.5rem; color: var(--texto-suave); font-size: .82rem; text-align: center; }
+
+.pagina-cuenta { align-items: center; min-height: calc(100vh - 152px); background: var(--crema); }
+.introduccion-cuenta { max-width: 480px; }
+.introduccion-cuenta h1 { margin-top: .7rem; font-size: clamp(2.4rem, 5vw, 4.3rem); }
+.tarjeta-registro { width: 100%; }
+
+.pie-sitio { padding: 1.5rem; background: var(--tinta); color: #c7b9ad; font-size: .78rem; text-align: center; }
+
+:focus-visible { outline: 3px solid #e9bb6d; outline-offset: 3px; }
+
+@media (max-width: 760px) {
+  .encabezado-sitio { min-height: 68px; padding: 0 1.2rem; }
+  .boton-menu { display: block; border: 0; background: transparent; color: var(--papel); cursor: pointer; font-size: 1.35rem; }
+  .menu-principal { position: absolute; top: 68px; right: 1rem; left: 1rem; display: none; flex-direction: column; align-items: stretch; gap: 0; padding: .6rem; border: 1px solid rgba(255, 253, 249, .15); border-radius: 12px; background: #193b3b; box-shadow: var(--sombra); }
+  .menu-principal.abierto { display: flex; }
+  .enlace-menu { padding: .8rem; }
+  .boton-inicio-sesion, .boton-crear-cuenta { border: 0; border-radius: 0; }
+  .presentacion { grid-template-columns: 1fr; min-height: auto; padding: 4.5rem 1.2rem; }
+  .tarjeta-presentacion { max-width: none; }
+  .seccion, .seccion-inicio-sesion, .pagina-cuenta { padding: 3.5rem 1.2rem; }
+  .detalle-restaurante { margin-top: 1.5rem; padding: 1rem; }
+  .encabezado-resenas { flex-direction: column; align-items: start; }
+  .resumen-ubicacion { flex-direction: column; }
+  .fila-direccion-manual { flex-direction: column; }
+  .mapa { height: 240px; }
+  .encabezado-seccion, .seccion-inicio-sesion, .pagina-cuenta { grid-template-columns: 1fr; flex-direction: column; align-items: start; gap: 1.5rem; }
+  .tarjeta-inicio-sesion { width: 100%; padding: 1.5rem; }
+  .pagina-cuenta { min-height: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}

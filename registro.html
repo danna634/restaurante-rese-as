@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Crea tu cuenta en Sabor & Reseña.">
+  <title>Crear cuenta — Sabor & Reseña</title>
+  <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+  <header class="encabezado-sitio">
+    <a class="marca" href="index.html#inicio" aria-label="Ir al inicio">
+      <span class="icono-marca" aria-hidden="true">🍽️</span>
+      <span>Sabor & Reseña</span>
+    </a>
+
+    <button class="boton-menu" id="boton-menu" type="button" aria-expanded="false" aria-controls="menu-principal">
+      <span class="solo-lectura">Abrir menú</span>
+      <span aria-hidden="true">☰</span>
+    </button>
+
+    <nav class="menu-principal" id="menu-principal" aria-label="Navegación principal">
+      <a class="enlace-menu" href="index.html#inicio">Inicio</a>
+      <a class="enlace-menu" href="index.html#restaurantes">Restaurantes</a>
+      <a class="enlace-menu" href="index.html#sobre-nosotros">Sobre nosotros</a>
+      <a class="enlace-menu boton-inicio-sesion" href="index.html#inicio-sesion">Iniciar sesión</a>
+      <a class="enlace-menu boton-crear-cuenta activo" href="registro.html">Crear cuenta</a>
+    </nav>
+  </header>
+
+  <main class="pagina-cuenta">
+    <section class="introduccion-cuenta">
+      <p class="etiqueta-superior etiqueta-oscura">ÚNETE A LA COMUNIDAD</p>
+      <h1>Comparte los lugares que te hacen disfrutar.</h1>
+      <p>Crea tu cuenta para guardar restaurantes y preparar tus futuras reseñas.</p>
+    </section>
+
+    <section class="tarjeta-inicio-sesion tarjeta-registro" aria-labelledby="titulo-registro">
+      <div class="encabezado-formulario">
+        <span class="icono-inicio-sesion" aria-hidden="true">✨</span>
+        <h2 id="titulo-registro">Crear cuenta</h2>
+        <p>Completa tus datos para comenzar.</p>
+      </div>
+
+      <form id="formulario-registro" class="formulario">
+        <div class="campo">
+          <label for="nombre-usuario">Nombre de usuario</label>
+          <input id="nombre-usuario" name="nombre-usuario" type="text" autocomplete="username" placeholder="Ejemplo: ana123" minlength="3" required>
+        </div>
+
+        <div class="campo">
+          <label for="correo-registro">Correo electrónico</label>
+          <input id="correo-registro" name="correo" type="email" autocomplete="email" placeholder="tu@correo.com" required>
+        </div>
+
+        <div class="campo">
+          <label for="contrasena-registro">Contraseña</label>
+          <div class="campo-contrasena">
+            <input id="contrasena-registro" name="contrasena" type="password" autocomplete="new-password" placeholder="Mínimo 6 caracteres" minlength="6" required>
+            <button class="boton-contrasena" type="button" data-campo="contrasena-registro" aria-label="Mostrar contraseña">👁</button>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="confirmar-contrasena">Confirmar contraseña</label>
+          <div class="campo-contrasena">
+            <input id="confirmar-contrasena" name="confirmar-contrasena" type="password" autocomplete="new-password" placeholder="Repite tu contraseña" minlength="6" required>
+            <button class="boton-contrasena" type="button" data-campo="confirmar-contrasena" aria-label="Mostrar contraseña">👁</button>
+          </div>
+        </div>
+
+        <label class="opcion-terminos">
+          <input id="terminos" name="terminos" type="checkbox" required>
+          <span>Acepto usar la plataforma de forma respetuosa.</span>
+        </label>
+
+        <button class="boton boton-principal boton-ancho-completo" type="submit">Crear cuenta</button>
+        <p class="mensaje-formulario" id="mensaje-registro" aria-live="polite"></p>
+      </form>
+
+      <p class="pie-inicio-sesion">¿Ya tienes una cuenta? <a href="index.html#inicio-sesion" class="enlace-texto">Iniciar sesión</a></p>
+    </section>
+  </main>
+
+  <footer class="pie-sitio">
+    <p>© 2026 Sabor & Reseña · Proyecto académico</p>
+  </footer>
+
+  <script src="js/principal.js"></script>
+</body>
+</html>
